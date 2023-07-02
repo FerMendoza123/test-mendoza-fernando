@@ -1,0 +1,32 @@
+#inBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#mail-viewer{
+    max-width: 60%;
+    width: -webkit-fill-available;
+    background-color: #F5F5F5;
+    color: gray;
+}
+#mail-side-bar{
+    min-width: 350px;
+    width:calc(40%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+
+@media (min-width) {
+    #mail-side-bar{
+        width: 500px;
+    }
+    #mail-viewer{
+        max-width: calc(100% - 500px);
+    }
+}

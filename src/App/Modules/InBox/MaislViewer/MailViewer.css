@@ -1,0 +1,90 @@
+.view-section{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#buttons-section{
+    display: flex;
+    align-items:  start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 30px;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.view-btn{
+    border: 0;
+    border-radius: 2px;
+    margin-right: 10px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#delete-btn{
+    background-color: red;
+    color: white;
+}
+#span-btn{
+    color: gray;
+    border: 2px solid #E3E3E3;
+}
+#unread-btn{
+    position: absolute;
+    right: -0;
+}
+.blue-btn{
+    background-color: #5DB7EA;
+    color: white;
+}
+.content-section{
+    background-color: white;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    box-shadow: #E3E3E3;
+
+}
+
+#tag-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+#tag-section>span{
+    padding-top: 2px;
+}
+
+.mail-tag{
+    display: inline-block;
+    border: 2px solid #E3E3E3;
+    border-radius: 2px;
+    margin-left: 10px;
+    padding: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#body-section{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#body{
+    padding: 20px;
+    font-size: large;
+}
+#body-footer{
+    display: flex;
+    padding: 0;
+    justify-content: flex-end;
+    background-color: #EEEEEE;
+}
+#replay-btn{
+    border-radius: 0;
+    border-bottom-right-radius: 5px;
+    padding: 6px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    margin: 0;
+}
