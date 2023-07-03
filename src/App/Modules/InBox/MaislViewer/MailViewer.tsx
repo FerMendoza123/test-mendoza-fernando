@@ -1,17 +1,48 @@
 import { FunctionComponent, ReactElement, useContext } from "react";
 import { InBoxContext, InBoxProviderContext } from "../../../Context/InBoxContext";
 import "./MailViewer.css";
+import { Mail } from "../../../Types/Mail";
 
 export const MailViewer : FunctionComponent = () : ReactElement => {
-    const {selectedMail, mailSection} : InBoxProviderContext = useContext(InBoxContext);
+    const {
+        selectedMail, 
+        setSelectedMail,
+        mailSection,
+        inBoxList,
+        setInBoxList,
+        deletedList,
+        setDeletedList,
+        spamList,
+        setSpamList
+    } : InBoxProviderContext = useContext(InBoxContext);
+
+
+    function deleteMail(){
+        setInBoxList(inBoxList.filter(mail=>mail!==selectedMail))
+        deletedList.push(selectedMail as Mail);
+        setDeletedList(deletedList);
+        setSelectedMail(undefined);
+    }
+    function sendToSpam(){
+        setInBoxList(inBoxList.filter(mail=>mail!==selectedMail))
+        spamList.push(selectedMail as Mail);
+        setSpamList(spamList);
+        setSelectedMail(undefined);
+    }
+    function markAsUnread(){
+        var idx : number = inBoxList.findIndex(mail => mail==selectedMail);
+        inBoxList[idx].isReaded = false;
+        setInBoxList(inBoxList);
+    }
+
 
     const MailView : FunctionComponent = () : ReactElement =>{
         return(
         <div id="mail-viewer">
             <header id="buttons-section" className="view-section" >
-                <button id="delete-btn" className="view-btn">Delete</button>
-                <button id="span-btn" className="view-btn">Span</button>
-                <button id="unread-btn" className="view-btn blue-btn">Mark as unread</button>
+                <button id="delete-btn" className="view-btn" onClick={deleteMail}>Delete</button>
+                <button id="span-btn" className="view-btn" onClick={sendToSpam}>Span</button>
+                <button id="unread-btn" className="view-btn blue-btn" onClick={markAsUnread}>Mark as unread</button>
             </header>
             <section className="view-section">
                 <h3>{selectedMail?.from}</h3>

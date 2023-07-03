@@ -25,6 +25,7 @@ export function MailSideBar(){
         setMailSection("InBox");
     },[])
 
+    //Change the mails list when the section changes
     useEffect(()=>{
         console.log(inBoxList);
         setSelectedMail(undefined)
@@ -43,12 +44,14 @@ export function MailSideBar(){
         }
     },[mailSection])
     
+    //Updates de component´s mail list when the inbox list changes and the selected mail section is inbox
     useEffect(()=>{
         if(mailSection == "InBox"){
             setMailList(inBoxList)
         }
     },[inBoxList])
     
+    //Changes the selected mails section (InBox,Deleted,Spam)
     function changeSection(e:any){
         if(e.target.value!==mailSection){
             setMailSection(e.target.value)

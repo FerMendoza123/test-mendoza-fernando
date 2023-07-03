@@ -13,13 +13,16 @@ export function MailItem({mail}:props){
         setSelectedMail,
         mailSection,
         inBoxList,
+        setInBoxList
 
     } : InBoxProviderContext = useContext(InBoxContext)
 
+    //Changes the is readed state of a non readed selected mail
     useEffect(()=>{
         if(mailSection=="InBox" && selectedMail && !selectedMail.isReaded){
             let idx = inBoxList.findIndex(mail=>mail===selectedMail)
             inBoxList[idx].isReaded = true;
+            setInBoxList(inBoxList);
         }
     },[selectedMail])
 
