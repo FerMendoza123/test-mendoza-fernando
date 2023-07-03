@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactElement, useContext } from "react";
+import { FunctionComponent, ReactElement, useContext, useEffect } from "react";
 import { InBoxContext, InBoxProviderContext } from "../../../Context/InBoxContext";
 import "./MailSideBar.css"
 import { Mail } from "../../../Types/Mail";
@@ -11,7 +11,17 @@ export function MailItem({mail}:props){
     const {
         selectedMail,
         setSelectedMail,
+        mailSection,
+        inBoxList,
+
     } : InBoxProviderContext = useContext(InBoxContext)
+
+    useEffect(()=>{
+        if(mailSection=="InBox" && selectedMail && !selectedMail.isReaded){
+            let idx = inBoxList.findIndex(mail=>mail===selectedMail)
+            inBoxList[idx].isReaded = true;
+        }
+    },[selectedMail])
 
     const updateSelected = ()=>{
         setSelectedMail(mail);
