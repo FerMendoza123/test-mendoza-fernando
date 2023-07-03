@@ -40,9 +40,14 @@ export const MailViewer : FunctionComponent = () : ReactElement => {
         return(
         <div id="mail-viewer">
             <header id="buttons-section" className="view-section" >
-                <button id="delete-btn" className="view-btn" onClick={deleteMail}>Delete</button>
-                <button id="span-btn" className="view-btn" onClick={sendToSpam}>Span</button>
-                <button id="unread-btn" className="view-btn blue-btn" onClick={markAsUnread}>Mark as unread</button>
+
+                {mailSection==="InBox" && 
+                <>
+                    <button id="delete-btn" className="view-btn" onClick={deleteMail}>Delete</button>
+                    <button id="span-btn" className="view-btn" onClick={sendToSpam}>Span</button>
+                    <button id="unread-btn" className="view-btn blue-btn" onClick={markAsUnread}>Mark as unread</button>
+                </>
+                }
             </header>
             <section className="view-section">
                 <h3>{selectedMail?.from}</h3>
