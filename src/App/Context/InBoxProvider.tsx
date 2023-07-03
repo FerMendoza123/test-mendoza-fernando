@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { InBoxContext, InBoxProviderContext } from "./InBoxContext"
 import { Mail } from "../Types/Mail";
-import { initialMailList } from "./MailItems";
-import { randomInt } from "crypto";
 
 
 
@@ -15,30 +13,50 @@ export const InBoxProvider = ({children}:any)=>{
     const [deletedList,setDeletedList] = useState<Mail[]>([]);
 
     const [mailSection,setMailSection] = useState(String);
+    const [timer,setTimer] = useState<NodeJS.Timer|undefined>(undefined)
 
-
-    // async function insertMails(){
+    // function insertMails(){
     //     let mail : Mail ={
-    //         to:"",
-    //         avatar:"",
-    //         body:"",
-    //         date:"",
-    //         from:"",
+    //         to:"a",
+    //         avatar:"s",
+    //         body:"d",
+    //         date:"s",
+    //         from:"s",
     //         id:inBoxList.length,
     //         isReaded:false,
-    //         subject:"",
-    //         tag:"",
+    //         subject:"d",
+    //         tag:"d",
     //         attachements:[]
     //     }
     //     inBoxList.push(mail);
-    //     console.log(inBoxList);
-        
-    //     setMailList(inBoxList);
+    //     setInBoxList(inBoxList)
     // }
-    // async function getMails(){
-    //     setInterval(insertMails,1000)
-    // }
+
     
+    // useEffect(()=>{
+    //     const interval = setInterval(()=>{
+    //         let mail : Mail ={
+    //             to:"a",
+    //             avatar:"s",
+    //             body:"d",
+    //             date:"s",
+    //             from:"s",
+    //             id:inBoxList.length,
+    //             isReaded:false,
+    //             subject:"d",
+    //             tag:"d",
+    //             attachements:[]
+    //         }
+    //         console.log(inBoxList);
+            
+    //         inBoxList.push(mail);
+    //         setInBoxList(inBoxList)
+    //     },2000);
+    //     return ()=>{
+    //         clearInterval(interval)
+    //     }
+    // },[])
+
    
 
     
