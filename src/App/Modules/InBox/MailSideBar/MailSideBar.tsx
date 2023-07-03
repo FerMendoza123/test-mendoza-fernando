@@ -60,8 +60,12 @@ export function MailSideBar(){
     return(
         <div id="mail-side-bar">
             <div id="header">
-                <h4>{mailSection}</h4>
-                <select name="select" id="" onChange={changeSection}>
+                <div>
+                    <h4>{mailSection}</h4>
+                    <p>{mailList.filter(mail=>!mail.isReaded).length}</p>
+                </div>
+                
+                <select name="select" id="select-section" onChange={changeSection}>
                     <option value="InBox">InBox</option>
                     <option value="Deleted">Deleted</option>
                     <option value="Spam">Spam</option>
